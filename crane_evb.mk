@@ -26,8 +26,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/softwinner/crane-evb/vold.fstab:system/etc/vold.fstab
 	
-PRODUCT_PACKAGES += \
-	TSCalibration2
+#PRODUCT_PACKAGES += \
+#	TSCalibration2
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mass_storage,adb \
