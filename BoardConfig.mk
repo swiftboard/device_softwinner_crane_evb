@@ -30,7 +30,7 @@ WPA_SUPPLICANT_VERSION      := VER_0_8_X
 
 # Wifi chipset select
 # usb wifi "rtl8192cu"; sdio wifi "nanowifi"/"ar6302"/"usibcm4329"
-SW_BOARD_USR_WIFI := nanowifi
+#SW_BOARD_USR_WIFI := nanowifi
 #SW_BOARD_USR_WIFI := usibcm4329
 #SW_BOARD_USR_WIFI := hwmw269v2
 #SW_BOARD_USR_WIFI := hwmw269v3
@@ -42,3 +42,19 @@ SW_BOARD_USR_WIFI := nanowifi
 #BOARD_HAVE_BLUETOOTH_BCM := true
 #BOARD_HAVE_BLUETOOTH_CSR:= true
 #SW_BOARD_HAVE_BLUETOOTH_NAME := hwmw269v2
+# Wifi chipset select
+BOARD_WIFI_VENDOR := realtek
+ifeq ($(BOARD_WIFI_VENDOR), realtek)
+    WPA_SUPPLICANT_VERSION := VER_0_8_X
+    BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+    BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_rtl
+    BOARD_HOSTAPD_DRIVER        := NL80211
+    BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_rtl
+
+    SW_BOARD_USR_WIFI := rtl8188eu
+    BOARD_WLAN_DEVICE := rtl8188eu
+  
+endif
+
+BOARD_HAVE_BLUETOOTH := true
+BOARD_USES_GPS_TYPE := simulator
